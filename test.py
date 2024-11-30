@@ -8,7 +8,7 @@ engine = pyttsx3.init()
 
 #### 1.1 Speed
 rate = engine.getProperty('rate')
-engine.setProperty('rate', rate-130)
+engine.setProperty('rate', rate-110)
 
 #### 1.2 Volume
 volume = engine.getProperty('volume')
