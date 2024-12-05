@@ -1,6 +1,5 @@
-import codecs
 import os
-
+from speech_lib import read_local
 folder_url = 'list_text'
 list_file  = os.listdir(folder_url)
 print(list_file)
@@ -15,12 +14,15 @@ print(file_url)
 from test import speech_vie_data
 from time import sleep
 local_file = file_url
-with codecs.open(local_file, encoding='utf-8') as f:
-    speech_vie_data('Bài tập viết của Tiến Minh bắt đầu...')
-    for line in f:
-        print(line)
-        for i in range (0,5):
-            speech_vie_data(line)
-            sleep(2)
-        sleep(3)
-    speech_vie_data('hết bài')
+data_read_file = read_local(local_file)
+
+
+speech_vie_data('Bài tập viết của Tiến Minh bắt đầu...')
+sleep(2)
+for line in data_read_file:
+    print(line)
+    for i in range (0,4):
+        speech_vie_data(line)
+        sleep(2)
+    sleep(3)
+speech_vie_data('hết bài')
