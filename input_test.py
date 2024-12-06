@@ -3,8 +3,7 @@ from random import randint
 
 
 #### Phép cộng
-a_array_test = []
-b_array_test = []
+
 
 # for i in range(0,10):
 #     a_random = randint(1,10)
@@ -15,14 +14,17 @@ b_array_test = []
 # input_test(a_array_test,b_array_test,'+')
 #
 #
-# #### Phép nhân
-a_array_mutil_test = []
-b_array_mutil_test = []
+# #### Phép nhân'
 
-for i in range(0,10):
-    a_random_mutil = randint(1,10)
-    b_random_mutil = randint(1,10)
-    a_array_mutil_test.append(a_random_mutil)
-    b_array_mutil_test.append(b_random_mutil)
 
-input_test(a_array_mutil_test,b_array_mutil_test,'x')
+speech_vie_data('Bài test phép cộng trong phạm vi 100')
+input_test_plus(10,[1,99],[1,9],'+')
+
+speech_vie_data('Bài test phép trừ trong phạm vi 100')
+input_test_plus(5,[1,9],[1,99],'-')
+
+speech_vie_data('Bài test phép nhân')
+input_test_plus(10,[1,99],[1,9],'+')
+
+speech_vie_data('Bài test phép chia')
+input_test_plus(5,[1,9],[1,9],':')

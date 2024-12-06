@@ -1,5 +1,6 @@
 import codecs
 import pyttsx3
+from random import randint
 
 def read_local(file_url):
     data_read = []
@@ -37,7 +38,17 @@ def speech_vie_data(text):
 
 
 
-def input_test(a_array,b_array,type):
+def input_test_plus(range_data,a_array_index,b_array_index,type):
+    a_array = []
+    b_array = []
+    for i in range(0,range_data):
+        a_random = randint(a_array_index[0],a_array_index[1])
+        b_random = randint(b_array_index[0],b_array_index[1])
+        a_array.append(a_random)
+        b_array.append(b_random)
+
+
+
     len_array = len(a_array)
     correct_count  = incorect_count = total_count   = 0
 
@@ -45,19 +56,28 @@ def input_test(a_array,b_array,type):
     for i in range(0,len_array):
         a_value = a_array[i]
         b_value = b_array[i]
-        question_show = f'{a_value} {type} {b_value} = ? '
         if type == '+':
             type_name = 'cộng'
             correct = a_value + b_value
         elif type == '-':
             type_name = 'trừ'
-            correct = a_value - b_value
+            temp = a_value +  b_value
+            correct = b_value
+            b_value = a_value
+            a_value = temp
+
         elif type == 'x':
             type_name = 'nhân'
             correct = a_value * b_value
+
         elif type == ':':
             type_name = 'chia'
-            correct = a_value / b_value
+            temp = a_value *  b_value
+            correct = b_value
+            b_value = a_value
+            a_value = temp
+
+        question_show = f'{a_value} {type} {b_value} = ? '
         question_name = f'{a_value} {type_name} {b_value} bằng bao nhiêu'
 
         ### Show question
@@ -80,6 +100,8 @@ def input_test(a_array,b_array,type):
     speech_vie_data(f'Tỷ lệ câu đúng là {correct_rate}%:')
     print(f'Tỷ lệ câu sai là {incorrect_rate}%:')
     speech_vie_data(f'Tỷ lệ câu sai là {incorrect_rate}%:')
+
+
 
 
 
